@@ -3510,3 +3510,68 @@ main, section, article, .section-head, .work-grid, .work-item, .experience-card,
 @media(min-width:851px){.content-carousel-slide.is-only-two{width:62%;left:27%}}
 @media(max-width:850px){.content-carousel-slide.is-only-two{width:68%;left:25%}}
 @media(max-width:480px){.content-carousel-slide.is-only-two{width:72%;left:23%}}
+
+
+/* FINAL LAYOUT FIX — keep About portrait and separate Hero frame from the surname. */
+@media (min-width: 851px) {
+  .hero-main-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 300px) !important;
+    column-gap: clamp(38px, 5vw, 76px) !important;
+    align-items: start !important;
+  }
+  .hero-main-row > .hero-text-block { min-width: 0 !important; }
+  .hero-main-row > .hero-visual {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin-left: 0 !important;
+    justify-self: end !important;
+  }
+}
+
+/* About: restore the original portrait 9:16 media beside the copy. */
+@media (min-width: 851px) {
+  .about-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr) !important;
+    column-gap: clamp(38px, 5vw, 76px) !important;
+    align-items: center !important;
+  }
+  .about-layout .about-media-primary {
+    width: 100% !important;
+    max-width: 420px !important;
+    min-width: 0 !important;
+    align-self: center !important;
+  }
+  .about-layout .about-media-primary > .about-carousel-host {
+    width: min(100%, 420px) !important;
+    max-width: 420px !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    flex: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+  .about-layout .about-media-primary .about-carousel-viewport,
+  .about-layout .about-media-primary .about-carousel-track,
+  .about-layout .about-media-primary .about-carousel-slide {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .about-layout .about-media-primary .about-carousel-slide img,
+  .about-layout .about-media-primary .about-carousel-slide video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+@media (max-width: 850px) {
+  .about-layout .about-media-primary > .about-carousel-host {
+    width: min(100%, 340px) !important;
+    max-width: 340px !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
+    margin-inline: auto !important;
+  }
+}
