@@ -3554,3 +3554,126 @@ main, section, article, .section-head, .work-grid, .work-item, .experience-card,
 @media(min-width:851px){.content-carousel-slide.is-only-two{width:62%;left:27%}}
 @media(max-width:850px){.content-carousel-slide.is-only-two{width:68%;left:25%}}
 @media(max-width:480px){.content-carousel-slide.is-only-two{width:72%;left:23%}}
+
+/* CHERRY LINE FINAL FIX — Sport and School each occupy their own full-width row. */
+#work .work-grid > .work-item.content-card[data-content-category="sport"],
+#work .work-grid > .work-item.content-card[data-content-category="school"] {
+  grid-column: 1 / -1 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  align-items: start !important;
+  gap: 0 !important;
+}
+#work .work-grid > .work-item.content-card[data-content-category="sport"] > h3,
+#work .work-grid > .work-item.content-card[data-content-category="school"] > h3,
+#work .work-grid > .work-item.content-card[data-content-category="sport"] > .work-caption,
+#work .work-grid > .work-item.content-card[data-content-category="school"] > .work-caption,
+#work .work-grid > .work-item.content-card[data-content-category="sport"] > [data-media="sport1"],
+#work .work-grid > .work-item.content-card[data-content-category="school"] > [data-media="school1"] {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+#work .work-grid > .work-item.content-card[data-content-category="sport"] > [data-media="sport1"],
+#work .work-grid > .work-item.content-card[data-content-category="school"] > [data-media="school1"] {
+  margin: 24px auto 28px !important;
+}
+/* The actual carousel: one full central item and partial neighbouring previews. */
+#work [data-media="sport1"].content-carousel-host,
+#work [data-media="school1"].content-carousel-host {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  margin-inline: auto !important;
+}
+#work [data-media="sport1"] .content-carousel-stage,
+#work [data-media="school1"] .content-carousel-stage {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  min-height: 240px !important;
+  max-height: 560px !important;
+  aspect-ratio: var(--active-ratio, 4 / 5) !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+#work [data-media="sport1"] .content-carousel-slide,
+#work [data-media="school1"] .content-carousel-slide {
+  position: absolute !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 56% !important;
+  left: 22% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+  background: #111 !important;
+}
+#work [data-media="sport1"] .content-carousel-slide.is-prev,
+#work [data-media="school1"] .content-carousel-slide.is-prev,
+#work [data-media="sport1"] .content-carousel-slide.is-next,
+#work [data-media="school1"] .content-carousel-slide.is-next {
+  width: 20% !important;
+  opacity: .58 !important;
+  z-index: 1 !important;
+  cursor: pointer !important;
+}
+#work [data-media="sport1"] .content-carousel-slide.is-prev,
+#work [data-media="school1"] .content-carousel-slide.is-prev { left: 0 !important; }
+#work [data-media="sport1"] .content-carousel-slide.is-next,
+#work [data-media="school1"] .content-carousel-slide.is-next { left: 80% !important; }
+#work [data-media="sport1"] .content-carousel-slide img,
+#work [data-media="school1"] .content-carousel-slide img,
+#work [data-media="sport1"] .content-carousel-slide video,
+#work [data-media="school1"] .content-carousel-slide video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: #111 !important;
+}
+#work [data-media="sport1"] .content-carousel-slide.is-only,
+#work [data-media="school1"] .content-carousel-slide.is-only { width: 76% !important; left: 12% !important; }
+#work [data-media="sport1"] .content-carousel-slide.is-only-two,
+#work [data-media="school1"] .content-carousel-slide.is-only-two { width: 56% !important; left: 22% !important; }
+#work [data-media="sport1"] .content-carousel-arrow,
+#work [data-media="school1"] .content-carousel-arrow { z-index: 5 !important; }
+#work [data-media="sport1"].content-carousel-empty,
+#work [data-media="school1"].content-carousel-empty {
+  min-height: 90px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  border: 1px dashed rgba(102,0,0,.35) !important;
+  color: #777 !important;
+  background: transparent !important;
+}
+@media (max-width: 700px) {
+  #work [data-media="sport1"] .content-carousel-stage,
+  #work [data-media="school1"] .content-carousel-stage { min-height: 190px !important; max-height: 420px !important; }
+  #work [data-media="sport1"] .content-carousel-slide,
+  #work [data-media="school1"] .content-carousel-slide { width: 66% !important; left: 17% !important; }
+  #work [data-media="sport1"] .content-carousel-slide.is-prev,
+  #work [data-media="school1"] .content-carousel-slide.is-prev,
+  #work [data-media="sport1"] .content-carousel-slide.is-next,
+  #work [data-media="school1"] .content-carousel-slide.is-next { width: 14% !important; }
+  #work [data-media="sport1"] .content-carousel-slide.is-next,
+  #work [data-media="school1"] .content-carousel-slide.is-next { left: 86% !important; }
+  #work [data-media="sport1"] .content-carousel-slide.is-only,
+  #work [data-media="school1"] .content-carousel-slide.is-only { width: 82% !important; left: 9% !important; }
+}
