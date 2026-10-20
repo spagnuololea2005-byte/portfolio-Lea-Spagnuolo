@@ -1389,7 +1389,7 @@ render();
     const data=get();
     const url=String(data.contactYoutube||data.creativeYoutube||"").trim();
     if(link){
-      link.href=url||"https://www.youtube.com/@Leyaenvadrouille";
+      link.href=url||"https://www.youtube.com/";
       link.dataset.configured=url?"true":"false";
     }
     if(input && input.value!==url) input.value=url;
