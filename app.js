@@ -442,10 +442,8 @@ async function render(){
       }
       box.classList.remove("media-managed-multi"); applyMediaRatio(box,meta); box.appendChild(item); continue;
     }
-    if((section.key==="about" || section.key==="sport1" || section.key==="school1") && items.length>0){
-      await renderAboutCarousel(box,items,section.key);
-      continue;
-    }
+    // Sport and School are handled exclusively by renderContentCarousel above.
+    // Do not route them through the single-image About carousel.
     box.innerHTML="";
     box.classList.add("media-managed-host");
     box.classList.toggle("media-managed-multi",items.length>1);
